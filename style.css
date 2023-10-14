@@ -58,4 +58,25 @@ header {
     background-color: lightgreen;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.library-shelf {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 40px;
+    gap: 15px;
+    margin: auto;
+}
+
+.book {
+    border: 10px solid green;
+    width: 200px;
+    padding: 10px;
+    color: gold;
+    background-color: saddlebrown;
+}
+
+.book > * {
+    padding: 1em;
 }
