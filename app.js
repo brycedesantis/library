@@ -7,6 +7,15 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+Book.prototype.changeStatus = function() {
+    this.read = !this.read
+}
+
+function changeStatus(index) {
+    myLibrary[index].changeStatus()
+    addToShelf()
+}
+
 function addBookToLibrary() {
     let title = document.querySelector('#title').value
     let author = document.querySelector('#author').value
@@ -35,15 +44,25 @@ function addToShelf() {
                 <h3 id="book-title">${book.title}</h3>
                 <h4 id="book-author">By ${book.author}</h4>
                 <h4 id="page-count">${book.pages} pages</h4>
-                <h4 id="read-status">${book.read ? 'Read' : 'Not Read'}</h4>`
+                <button id="read-status" onclick=changeStatus(${i})>${book.read ? 'Read' : 'Not Read'}</button>
+                <button id='delete-button' onclick=deleteBook()>Delete</button>`
         libraryShelf.appendChild(bookLabels)
     }
 
+}
+
+function deleteBook(index) {
+    myLibrary.splice(index, 1)
+    addToShelf()
 }
 
 let newBookBtn = document.querySelector('.new-book-btn')
 
 newBookBtn.addEventListener('click', function() {
     let bookForm = document.querySelector('.form-holder')
-    bookForm.style.display = 'block'
+    if(bookForm.style.display === 'block'){
+        bookForm.style.display = 'none'
+    } else {
+        bookForm.style.display = 'block'
+    }
 })

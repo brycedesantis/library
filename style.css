@@ -75,8 +75,30 @@ header {
     padding: 10px;
     color: gold;
     background-color: saddlebrown;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 .book > * {
     padding: 1em;
+}
+
+#read-status {
+    color: gold;
+    background-color: saddlebrown;
+    border: none;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    width: 100%;
+    text-align: inherit;
+}
+
+#delete-button {
+    background-color: lightcoral;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    line-height: .1em;
+    cursor: pointer;
 }
