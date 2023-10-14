@@ -2,3 +2,60 @@
     margin: 0;
     padding: 0;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 2em;
+    border-bottom: 1px solid #00000030;
+}
+
+.new-book-btn {
+    margin: 1.5em auto;
+    padding: 1.3em;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+}
+
+.new-book-btn:hover {
+    background-color: lightblue;
+    border-radius: 20px;
+}
+
+.form-holder {
+    display: none;
+}
+
+.new-book-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2em;
+    border: 1px solid black;
+    width: 300px;
+}
+
+.new-book-form > * {
+    margin: 10px 30px;
+}
+
+.new-book-form > label {
+    padding: 10px 10px 10px 0;
+    align-self: flex-start;
+}
+
+#read {
+    margin-left: 10px;
+}
+
+.add-book-btn {
+    margin: auto;
+    padding: 0.7em;
+    background-color: lightgreen;
+    border: none;
+    border-radius: 10px;
+}
