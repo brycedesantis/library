@@ -35,7 +35,7 @@ export default function DefaultPage() {
 				</Typography>
 			</Box>
 			<Divider />
-			<Stack direction={"row"} my={2} spacing={2}>
+			<Stack direction={"row"} my={2} justifyContent={"center"} spacing={2}>
 				<Box>
 					<Typography variant="h5">Upcoming events</Typography>
 					<TableContainer>

@@ -50,7 +50,7 @@ export default function NavBar() {
 					<DrawerElement onClose={closeDrawer} open={open} />
 				</Box>
 			</header>
-			<Container>
+			<Container maxWidth="1400px">
 				<Outlet />
 			</Container>
 		</>
