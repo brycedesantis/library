@@ -12,6 +12,7 @@ import SearchIcon from "@mui/icons-material/Search"
 import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import Book from "./Book"
+import saveMyBooks from "../Helpers/LocalStorage"
 
 export default function SearchPage() {
 	const [searchCriteria, setSearchCriteria] = useState("")
@@ -26,7 +27,7 @@ export default function SearchPage() {
 		const retrievedBook = await bookData.json()
 		for (let i = 0; i < retrievedBook.docs.length; i++) {
 			const fetchImage = await fetch(
-				`https://covers.openLibrary.org/b/isbn/${retrievedBook.docs[i]["isbn"][0]}-S.jpg`
+				`https://covers.openLibrary.org/b/isbn/${retrievedBook.docs[i]["isbn"][0]}-M.jpg`
 			)
 
 			const { title } = retrievedBook.docs[i]
@@ -51,6 +52,10 @@ export default function SearchPage() {
 		setSearchCriteria(space)
 	}
 
+	function saveBook(index) {
+		saveMyBooks(index)
+	}
+
 	const searchResults = searchedBooks.map((book) => {
 		return (
 			<Grid key={uuidv4} item xs={1}>
@@ -59,6 +64,7 @@ export default function SearchPage() {
 					author={book.author}
 					pages={book.pages}
 					imageSrc={book.coverImage}
+					onClick={() => saveBook(book)}
 				/>
 			</Grid>
 		)
@@ -98,6 +104,7 @@ export default function SearchPage() {
 				container
 				justifyContent={"center"}
 				alignItems={"center"}
+				rowSpacing={2}
 			>
 				{searchResults}
 			</Grid>
